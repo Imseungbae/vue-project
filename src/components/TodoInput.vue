@@ -8,7 +8,11 @@
 </template>
 
 <script>
+// axios 라이브러리 import
+import axios from 'axios'
+
 export default {
+  
     data() {
         return {
             newTodoItem: ''
@@ -18,7 +22,16 @@ export default {
         addTodo() {
             if(this.newTodoItem != null) {
                 var value = this.newTodoItem && this.newTodoItem.trim();
-                this.$emit('addTodo', value);
+                axios({
+                  method: 'post',
+                  url: 'http://13.209.83.211:22001/todo/',
+                  data: {
+                    content: value,
+                    author: 'default'
+                  }
+                }).then(res=>{
+                  console.log(res);
+                });
                 this.clearInput();
             }   
         },
