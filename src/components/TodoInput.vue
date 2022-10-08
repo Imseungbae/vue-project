@@ -24,7 +24,7 @@ export default {
                 var value = this.newTodoItem && this.newTodoItem.trim();
                 axios({
                   method: 'post',
-                  url: 'http://13.209.83.211:22001/todo/',
+                  url: 'http://localhost:22001/todo/',
                   data: {
                     content: value,
                     author: 'default'

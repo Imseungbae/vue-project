@@ -29,7 +29,7 @@ export default {
         this.$emit('removeTodo', item, idx);
     },
     removeTodoList(seq_no) {
-        axios.delete('http://13.209.83.211:22001/todo/' + seq_no)
+        axios.delete('http://localhost:22001/todo/' + seq_no)
         .then(res=>{
           const {data} = res;
           console.log(data);
@@ -37,7 +37,7 @@ export default {
     }
   },
   created(){
-    axios.get('http://13.209.83.211:22001/todo/list')
+    axios.get('http://localhost:22001/todo/list')
     .then(res=>{
       this.todoList = res.data;
       console.log(res.data);
